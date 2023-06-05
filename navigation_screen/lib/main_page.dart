@@ -7,7 +7,6 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.fromLTRB(30, 98, 30, 56),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -17,15 +16,23 @@ class MainPage extends StatelessWidget {
                 width: 36,
                 height: 54.98,
               ),
+              Text(
+                "Sign in to",
+                style: TextStyle(
+                  fontFamily: "Lato",
+                  fontSize: 30,
+                  fontWeight: FontWeight.w700,
+                  color: Color(0xFF373737),
+                ),
+              ),
               Text.rich(
                 TextSpan(
-                  text: "Sign in to \nDaily",
+                  text: "Daily",
                   style: TextStyle(
                     fontFamily: "Lato",
                     fontSize: 30,
                     fontWeight: FontWeight.w700,
                     color: Color(0xFF373737),
-                    
                   ),
                   children: <InlineSpan>[
                     TextSpan(
@@ -38,7 +45,6 @@ class MainPage extends StatelessWidget {
                   ],
                 ),
               ),
-              
             ],
           ),
         ),
