@@ -25,16 +25,33 @@ class _MyAppState extends State<MyApp> {
         body: Container(
           margin: EdgeInsets.all(20),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Container(
+                margin: EdgeInsets.only(bottom: 10),
+                child: Text(
+                  "TextField Form",
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+                ),
+              ),
               TextField(
+                // add some styles
+                decoration: InputDecoration(
+                  icon: Icon(Icons.account_balance_wallet),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
                 maxLength: 30,
                 onChanged: (value) {
                   setState(() {});
                 },
                 controller: controller,
               ),
-              Text(controller.text),
+              Text(
+                "Outputnya, " + controller.text,
+                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
+              ),
             ],
           ),
         ),
