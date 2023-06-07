@@ -91,6 +91,8 @@ class _MyAppState extends State<MyApp> {
                   // add some styles
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.queue),
+                    fillColor: Colors.lightBlue[50],
+                    filled: true,
                     labelText: "Add some more",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
