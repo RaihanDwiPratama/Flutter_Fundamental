@@ -19,6 +19,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: Text("TextField"),
         ),
@@ -80,6 +81,21 @@ class _MyAppState extends State<MyApp> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     hintText: "Password"
+                  ),
+                  maxLength: 30,
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                child: TextField(
+                  // add some styles
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.queue),
+                    labelText: "Add some more",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    hintText: "Input here"
                   ),
                   maxLength: 30,
                 ),
