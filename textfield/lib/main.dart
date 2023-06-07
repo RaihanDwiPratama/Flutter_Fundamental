@@ -52,6 +52,38 @@ class _MyAppState extends State<MyApp> {
                 "Outputnya, " + controller.text,
                 style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
               ),
+              Container(
+                margin: EdgeInsets.only(top: 20, bottom: 10),
+                child: Text(
+                  "Contoh lain TextField",
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+                ),
+              ),
+              TextField(
+                // add some styles
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.person),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  hintText: "Username"
+                ),
+                maxLength: 30,
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                child: TextField(
+                  // add some styles
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.enhanced_encryption),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    hintText: "Password"
+                  ),
+                  maxLength: 30,
+                ),
+              ),
             ],
           ),
         ),
