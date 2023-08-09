@@ -168,7 +168,7 @@ class Login extends StatelessWidget {
                         onPressed: () {},
                         mini: true,
                         elevation: 0,
-                        child: Icon(Icons.whatsapp),
+                        child: Icon(Icons.wechat_sharp),
                       ),
                     ],
                   ),
