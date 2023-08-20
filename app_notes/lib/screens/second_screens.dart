@@ -1,3 +1,4 @@
+import 'package:app_notes/models/notes.dart';
 import 'package:flutter/material.dart';
 
 class SecondScreens extends StatefulWidget {
@@ -8,8 +9,25 @@ class SecondScreens extends StatefulWidget {
 }
 
 class _SecondScreensState extends State<SecondScreens> {
-  TextEditingController _titleController = TextEditingController();
-  TextEditingController _descriptionController = TextEditingController();
+  final _titleController = TextEditingController();
+  final _descriptionController = TextEditingController();
+
+  List<Notes> notes = [];
+
+  void _addNotes(Notes note) {
+    setState(() {
+      notes.add(note);
+    });
+  }
+
+  void _isSaveEnabled() {
+    String title = _titleController.text;
+    String description = _descriptionController.text;
+
+    if (title.isNotEmpty || description.isNotEmpty) {
+      Navigator.pop(context, {'title': title, 'description': description});
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +55,11 @@ class _SecondScreensState extends State<SecondScreens> {
           ),
           SizedBox(height: 20),
           FloatingActionButton(
-            heroTag: 'save',
-            onPressed: () {},
             backgroundColor: Colors.teal,
+            heroTag: 'save',
+            onPressed: () {
+              _isSaveEnabled();
+            },
             child: Icon(
               Icons.save,
               color: Colors.white,

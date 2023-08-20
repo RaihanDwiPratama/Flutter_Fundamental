@@ -1,6 +1,8 @@
 import 'package:app_notes/screens/second_screens.dart';
 import 'package:flutter/material.dart';
 
+import '../models/notes.dart';
+
 class FirstScreens extends StatefulWidget {
   const FirstScreens({super.key});
 
@@ -9,7 +11,8 @@ class FirstScreens extends StatefulWidget {
 }
 
 class _FirstScreensState extends State<FirstScreens> {
-  bool _isBlank = true;
+  List<Notes> notes = [];
+  bool _isListView = true;
 
   @override
   Widget build(BuildContext context) {
@@ -30,16 +33,41 @@ class _FirstScreensState extends State<FirstScreens> {
           color: Colors.white,
         ),
       ),
-      body: Container(
-        child: _isBlank
-            ? SizedBox(
-                height: MediaQuery.of(context).size.height,
-                child: Center(child: Text('Make your first note')))
-            : Container(
-                color: Colors.amber,
-                height: MediaQuery.of(context).size.height,
-              ),
-      ),
+      body: Container(child: _buildNote()),
     );
   }
+
+  Widget _buildNote() {
+    if (notes.isEmpty) {
+      return SizedBox(
+        height: MediaQuery.of(context).size.height,
+        child: Center(child: Text('Make your first note')),
+      );
+    } else {
+      return Container(
+        child: _isListView
+            ? ListView.builder(
+                itemCount: notes.length,
+                itemBuilder: (context, index) {
+                  final note = notes[index];
+                  Container(
+                    color: Colors.amber,
+                  );
+                },
+              )
+            : GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                ),
+                itemCount: notes.length,
+                itemBuilder: (context, index) {
+                  final note = notes[index];
+                  Container();
+                },
+              ),
+      );
+    }
+  }
 }
+

@@ -3,4 +3,6 @@ class Notes {
   final String description;
 
   Notes(this.title, this.description);
+
+  List<Notes> notes = []; 
 }
