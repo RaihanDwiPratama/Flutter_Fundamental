@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:latihan_mengirim_arguments/data/model/arguments.dart';
 import 'package:latihan_mengirim_arguments/presentations/screens/detail_screens.dart';
 import 'package:latihan_mengirim_arguments/presentations/screens/home_screens.dart';
 
@@ -12,6 +13,7 @@ class Initial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(useMaterial3: true),
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
@@ -19,7 +21,8 @@ class Initial extends StatelessWidget {
               title: 'Lord of the rings',
               description: 'Film adventure',
             ),
-        'detail': (context) => DetailScreens(),
+        'detail': (context) => DetailScreens(
+            arguments: Arguments('Mendapatkan arguments', 'data...')),
       },
     );
   }
