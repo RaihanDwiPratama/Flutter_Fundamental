@@ -23,6 +23,7 @@ mixin _$User {
   int get id => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
+  String get address => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call({int id, String username, String password});
+  $Res call({int id, String username, String password, String address});
 }
 
 /// @nodoc
@@ -53,6 +54,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? id = null,
     Object? username = null,
     Object? password = null,
+    Object? address = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -67,6 +69,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
+      address: null == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -77,7 +83,7 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       __$$_UserCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String username, String password});
+  $Res call({int id, String username, String password, String address});
 }
 
 /// @nodoc
@@ -92,6 +98,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     Object? id = null,
     Object? username = null,
     Object? password = null,
+    Object? address = null,
   }) {
     return _then(_$_User(
       id: null == id
@@ -106,6 +113,10 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
+      address: null == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -114,20 +125,27 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 @JsonSerializable()
 class _$_User with DiagnosticableTreeMixin implements _User {
   const _$_User(
-      {required this.id, required this.username, required this.password});
+      {this.id = 1,
+      required this.username,
+      required this.password,
+      this.address = 'Kotabatu'});
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
   @override
+  @JsonKey()
   final int id;
   @override
   final String username;
   @override
   final String password;
+  @override
+  @JsonKey()
+  final String address;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'User(id: $id, username: $username, password: $password)';
+    return 'User(id: $id, username: $username, password: $password, address: $address)';
   }
 
   @override
@@ -137,7 +155,8 @@ class _$_User with DiagnosticableTreeMixin implements _User {
       ..add(DiagnosticsProperty('type', 'User'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('username', username))
-      ..add(DiagnosticsProperty('password', password));
+      ..add(DiagnosticsProperty('password', password))
+      ..add(DiagnosticsProperty('address', address));
   }
 
   @override
@@ -149,12 +168,13 @@ class _$_User with DiagnosticableTreeMixin implements _User {
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.password, password) ||
-                other.password == password));
+                other.password == password) &&
+            (identical(other.address, address) || other.address == address));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, username, password);
+  int get hashCode => Object.hash(runtimeType, id, username, password, address);
 
   @JsonKey(ignore: true)
   @override
@@ -172,9 +192,10 @@ class _$_User with DiagnosticableTreeMixin implements _User {
 
 abstract class _User implements User {
   const factory _User(
-      {required final int id,
+      {final int id,
       required final String username,
-      required final String password}) = _$_User;
+      required final String password,
+      final String address}) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
@@ -184,6 +205,8 @@ abstract class _User implements User {
   String get username;
   @override
   String get password;
+  @override
+  String get address;
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;
