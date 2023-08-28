@@ -15,8 +15,8 @@ class User with _$User {
   const factory User({
     required String id,
     required String title,
-    required String thumbnail,
     required String episode, // perbaikan yang ini
+    required String thumbnail, // perbaikan yang ini
   })= _User;
 
   // constructor fromJson digunakan

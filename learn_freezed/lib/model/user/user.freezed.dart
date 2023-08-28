@@ -22,8 +22,9 @@ User _$UserFromJson(Map<String, dynamic> json) {
 mixin _$User {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
+  String get episode =>
+      throw _privateConstructorUsedError; // perbaikan yang ini
   String get thumbnail => throw _privateConstructorUsedError;
-  String get episode => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,7 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call({String id, String title, String thumbnail, String episode});
+  $Res call({String id, String title, String episode, String thumbnail});
 }
 
 /// @nodoc
@@ -53,8 +54,8 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   $Res call({
     Object? id = null,
     Object? title = null,
-    Object? thumbnail = null,
     Object? episode = null,
+    Object? thumbnail = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -65,13 +66,13 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      thumbnail: null == thumbnail
-          ? _value.thumbnail
-          : thumbnail // ignore: cast_nullable_to_non_nullable
-              as String,
       episode: null == episode
           ? _value.episode
           : episode // ignore: cast_nullable_to_non_nullable
+              as String,
+      thumbnail: null == thumbnail
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -83,7 +84,7 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       __$$_UserCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String title, String thumbnail, String episode});
+  $Res call({String id, String title, String episode, String thumbnail});
 }
 
 /// @nodoc
@@ -97,8 +98,8 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
   $Res call({
     Object? id = null,
     Object? title = null,
-    Object? thumbnail = null,
     Object? episode = null,
+    Object? thumbnail = null,
   }) {
     return _then(_$_User(
       id: null == id
@@ -109,13 +110,13 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      thumbnail: null == thumbnail
-          ? _value.thumbnail
-          : thumbnail // ignore: cast_nullable_to_non_nullable
-              as String,
       episode: null == episode
           ? _value.episode
           : episode // ignore: cast_nullable_to_non_nullable
+              as String,
+      thumbnail: null == thumbnail
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -127,8 +128,8 @@ class _$_User with DiagnosticableTreeMixin implements _User {
   const _$_User(
       {required this.id,
       required this.title,
-      required this.thumbnail,
-      required this.episode});
+      required this.episode,
+      required this.thumbnail});
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
@@ -137,13 +138,14 @@ class _$_User with DiagnosticableTreeMixin implements _User {
   @override
   final String title;
   @override
-  final String thumbnail;
-  @override
   final String episode;
+// perbaikan yang ini
+  @override
+  final String thumbnail;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'User(id: $id, title: $title, thumbnail: $thumbnail, episode: $episode)';
+    return 'User(id: $id, title: $title, episode: $episode, thumbnail: $thumbnail)';
   }
 
   @override
@@ -153,8 +155,8 @@ class _$_User with DiagnosticableTreeMixin implements _User {
       ..add(DiagnosticsProperty('type', 'User'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('title', title))
-      ..add(DiagnosticsProperty('thumbnail', thumbnail))
-      ..add(DiagnosticsProperty('episode', episode));
+      ..add(DiagnosticsProperty('episode', episode))
+      ..add(DiagnosticsProperty('thumbnail', thumbnail));
   }
 
   @override
@@ -164,14 +166,14 @@ class _$_User with DiagnosticableTreeMixin implements _User {
             other is _$_User &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
+            (identical(other.episode, episode) || other.episode == episode) &&
             (identical(other.thumbnail, thumbnail) ||
-                other.thumbnail == thumbnail) &&
-            (identical(other.episode, episode) || other.episode == episode));
+                other.thumbnail == thumbnail));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, thumbnail, episode);
+  int get hashCode => Object.hash(runtimeType, id, title, episode, thumbnail);
 
   @JsonKey(ignore: true)
   @override
@@ -191,8 +193,8 @@ abstract class _User implements User {
   const factory _User(
       {required final String id,
       required final String title,
-      required final String thumbnail,
-      required final String episode}) = _$_User;
+      required final String episode,
+      required final String thumbnail}) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
@@ -201,9 +203,9 @@ abstract class _User implements User {
   @override
   String get title;
   @override
-  String get thumbnail;
-  @override
   String get episode;
+  @override // perbaikan yang ini
+  String get thumbnail;
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;

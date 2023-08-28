@@ -35,13 +35,39 @@ class _HomeScreensState extends State<HomeScreens> {
             return const Center(child: Text('Error loading data'));
           } else {
             final users = snapshot.data!;
-            return ListView.builder(
+            return GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 5,
+                mainAxisSpacing: 5,
+              ),
               itemCount: users.length,
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(users[index].title),
-                  subtitle: Text(
-                    users[index].thumbnail,
+                return Card(
+                  shadowColor: Colors.grey.shade600,
+                  elevation: 2,
+                  child: Container(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Center(
+                            child: Image.network(
+                              users[index].thumbnail,
+                              height: 110.0,
+                            ),
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            users[index].title,
+                            maxLines: 2,
+                            style: const TextStyle(
+                              overflow: TextOverflow.ellipsis,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(users[index].episode),
+                        ]),
                   ),
                 );
               },
