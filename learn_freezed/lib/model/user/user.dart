@@ -13,10 +13,10 @@ part 'user.g.dart';
 class User with _$User {
   // constructor diawali factory saat menggunakan freezed
   const factory User({
-    @Default(1) int id,
-    required String username,
-    required String password,
-    @Default('Kotabatu') String address,
+    required String id,
+    required String title,
+    required String thumbnail,
+    required String episode, // perbaikan yang ini
   })= _User;
 
   // constructor fromJson digunakan
