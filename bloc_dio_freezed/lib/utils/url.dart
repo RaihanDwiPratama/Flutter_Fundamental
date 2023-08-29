@@ -1,0 +1,1 @@
+const baseUrl = 'https://otakudesu-api-soqdlzbrnq-as.a.run.app';
